@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hellow News 자유게시판</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+    <!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<ul class="nav">
+							<li><a href="./login.html">로그인</a></li>
+							<li><a href="./join.html">회원가입</a></li>
+						</ul>
+						<div class="inner">
+							
+
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
+
+						</div>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">뉴스</a></li>
+							<li><a href="feed.html">피드</a></li>
+							<li><a href="board.html">자유게시판</a></li>
+							<li><a href="today.html">투데이 뉴스</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<h1><a href="board.html">자유게시판</a></h1>
+							    <form name="BoardViewForm" method="post">
+                                    <table summary="전체 테이블 구성">
+                                        <tr>
+                                            <td ><div align="center"><h3><b>글 읽기</b></h3></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan=2>
+                                                <table border="1" summary="목록 테이블 구성"> 
+                                                    <tr> 
+                                                        <td align=center bgcolor=#dddddd width=20%> 작성자</td>
+                                                        <td width=50%>혜선</td>
+                                                        <td align=center bgcolor=#dddddd width=20%> 작성일</td>
+                                                        <td width=40%>2022/03/31</td>
+                                                    </tr>
+                                                    <tr> 
+                                                        <td align=center bgcolor=#dddddd name="text_no">1</td>
+                                                        <td > 게시판 글</td>
+														<td align=center bgcolor=#dddddd>조회순</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr> 
+                                                        <td colspan=4><br>가나다라마바사<br></td>
+                                                    </tr>
+                                                    <tr>
+                                                        
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align=center> 
+                                            <div align="center">												
+												<input type="button" value="목록" onclick="location.href='http://127.0.0.1:3000/board';">                                                
+                                                <input type="button" value="답변" onclick="">                                                
+                                            </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </form>
+						</div>
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+</body>
+</html>
