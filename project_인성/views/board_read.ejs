@@ -23,10 +23,12 @@
 							<!-- Nav -->
 								<nav>
 									<ul>
-										<ul>
-											<li><a href="./login.html">로그인</a></li>
-											<li><a href="./join.html">회원가입</a></li>
-										</ul>
+										<%if (user==null){%>
+											<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
+											<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
+										<%} else {%>
+											<a href="http://127.0.0.1:3000/logout">로그아웃</a>
+										<%}%>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav>
@@ -38,10 +40,11 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="key.html">뉴스</a></li>
-							<li><a href="feed.html">피드</a></li>
-							<li><a href="board.html">자유게시판</a></li>
-							<li><a href="today.html">투데이 뉴스</a></li>
+							<li><a href="http://127.0.0.1:3000/main">뉴스</a></li>
+							<li><a href="http://127.0.0.1:3000/feed">피드</a></li>
+							<li><a href="http://127.0.0.1:3000/board">자유 게시판</a></li>
+							<li><a href="http://127.0.0.1:3000/today">투데이 뉴스</a></li>
+							<li><a href="elements.html"></a></li>
 						</ul>
 					</nav>
 
@@ -56,15 +59,15 @@
                                             <td colspan=2>
                                                 <table border="1" summary="목록 테이블 구성"> 
                                                     <tr> 
-                                                        <td align=center bgcolor=#dddddd width=20%> 작성자</td>
-                                                        <td width=50%>혜선</td>
-                                                        <td align=center bgcolor=#dddddd width=20%> 작성일</td>
-                                                        <td width=40%>2022/03/31</td>
+                                                        <td align=center bgcolor=#dddddd> 작성자</td>
+                                                        <td>혜선</td>
+                                                        <td align=center bgcolor=#dddddd> 작성일</td>
+                                                        <td>2022/03/31</td>
                                                     </tr>
                                                     <tr> 
                                                         <td align=center bgcolor=#dddddd> 제 목</td>
                                                         <td > 게시판 글</td>
-														<td align=center bgcolor=#dddddd>조회순</td>
+														<td align=center bgcolor=#dddddd>조회수</td>
                                                         <td></td>
                                                     </tr>
                                                     <tr> 
@@ -79,10 +82,8 @@
                                         <tr>
                                             <td align=center> 
                                             <div align="center">
-                                                <input type="button" value="목록" onclick="">
-                                                <input type="button" value="수정" onclick="">
-                                                <input type="button" value="답변" onclick="">
-                                                <input type="button" value="삭제" onclick=""><br>
+                                                <input type="button" value="목록" onclick="location.href='http://127.0.0.1:3000/board';">
+                                                <input type="button" value="답변" onclick=""><br>
                                             </div>
                                             </td>
                                         </tr>

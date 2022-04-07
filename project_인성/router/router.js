@@ -374,20 +374,25 @@ router.get("/entertaintoday", function(request, response){
 })
 
 router.get("/feed", function(request, response){
-       
-    let sql = "select * from Allnews ";
     
-    conn.query(sql, function(err, rows){        
-        if(rows){
-            response.render("feed", {
-                user : request.session.user,
-                rows : rows
-            })
-        } else{
-            console.log(err);
-        }
-    })
-   
+    if (request.session.user==null){
+        response.render("login", {
+            user : request.session.user
+        })
+    } else {
+        let sql = "select * from Allnews ";
+    
+        conn.query(sql, function(err, rows){        
+            if(rows){
+                response.render("feed", {
+                    user : request.session.user,
+                    rows : rows
+                })
+            } else{
+                console.log(err);
+            }
+        })
+    }       
 })
 
 router.get("/board", function(request, response){
