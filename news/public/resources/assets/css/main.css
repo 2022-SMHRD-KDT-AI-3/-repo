@@ -387,6 +387,7 @@ input, select, textarea {
 	h2 {
 		font-size: 1.5em;
 		line-height: 1.5em;
+		color: white;
 	}
 
 	h3 {
@@ -2149,8 +2150,11 @@ input, select, textarea {
 		textarea:focus {
 			border-color: #49bf9d;
 		}
+
 	.follow {
 		margin: 20px;
+		margin-left: auto;
+		font-size: 20px;
 	}
 
 	select {
@@ -2451,8 +2455,8 @@ input, select, textarea {
 			}
 
 			.image.avatar img {
-				border-radius: 100%;
-				width: 100%;
+				border-radius: 200%;
+				width: 200%;
 			}
 
 /* List */
@@ -2564,6 +2568,7 @@ input, select, textarea {
 		ul.actions li {
 			padding: 0 0 0 1em;
 			vertical-align: middle;
+			margin: auto;
 		}
 
 		ul.actions.special {
@@ -2900,16 +2905,16 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background-color: #4c7ef2c2;
+		/* background-color: #4c7ef2c2; */
 		background-attachment: scroll,								scroll;
-		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
+		background-image: url('https://cdn.wallpapersafari.com/92/15/Pxtj7U.jpg');;
 		background-position: top left,							top left;
-		background-repeat: repeat,								no-repeat;
-		background-size: auto,								150%;
+		background-repeat: no-repeat,								no-repeat;
+		background-size: cover,								150%;
 		color: rgb(255, 255, 255);
 		height: 100%;
 		left: 0;
-		padding: 8em 4em;
+		padding: 8em 10em;
 		position: fixed;
 		text-align: right;
 		top: 0;
@@ -2936,6 +2941,7 @@ input, select, textarea {
 
 		#header strong, #header b {
 			color: #ffffff;
+			font-size: 25px;
 		}
 
 		#header h2, #header h3, #header h4, #header h5, #header h6 {
@@ -2952,6 +2958,7 @@ input, select, textarea {
 		#header .image.avatar {
 			margin: 0 0 1em 0;
 			width: 6.25em;
+			margin-right: 75px;
 		}
 
 /* Footer */
@@ -3083,7 +3090,7 @@ input, select, textarea {
 	#main {
 		margin-left: 35%;
 		max-width: 54em;
-		padding: 8em 4em 4em 4em;
+		padding: 3em 4em 4em 4em;
 		width: calc(100% - 35%);
 	}
 
