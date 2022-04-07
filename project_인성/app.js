@@ -16,7 +16,8 @@ const session_mysql_save = require("express-mysql-session"); // 세션기능을 
 //     user : 'campus_g_0325_1', // id
 //     password : 'smhrd1', // 비밀번호
 //     port : '3307', // 포트 번호
-//     database : 'campus_g_0325_1' // 저장할 데이터베이스 이름
+//     database : 'campus_g_0325_1', // 저장할 데이터베이스 이름
+//     multipleStatements: true
 // }
 let DB_info = {  // DB에 관한 정보를 'session_mysql_save'에 저장하기 위한 정보
     host : '127.0.0.1', //ip 주소
