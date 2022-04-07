@@ -422,10 +422,20 @@ router.get("/board_write", function(request, response){
 
 router.post("/board_submit", function(request, response){
     
+    let user_ni
+    let title = request.body.email;
+    let content = request.body.pw;
     let sql = "insert into board value(?,?,?)"
 
-    response.redirect("http://127.0.0.1:3000/board");
-   
+    conn.query(sql,[],function(err, rows){  
+        console.log(rows.length);
+
+        if(rows.length > 0){
+            response.redirect("http://127.0.0.1:3000/board");
+        }else{
+            response.redirect("http://127.0.0.1:3000/board_write")            
+        }
+    })  
 })
 
 router.get("/board_read", function(request, response){
