@@ -412,6 +412,74 @@ router.get("/board", function(request, response){
    
 })
 
+router.get("/societyboard", function(request, response){
+       
+    let sql = "select * from board ";
+    
+    conn.query(sql, function(err, rows){        
+        if(rows){
+            response.render("societyboard", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
+    })
+   
+})
+
+router.get("/sportsboard", function(request, response){
+       
+    let sql = "select * from board ";
+    
+    conn.query(sql, function(err, rows){        
+        if(rows){
+            response.render("sportsboard", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
+    })
+   
+})
+
+router.get("/lifeboard", function(request, response){
+       
+    let sql = "select * from board ";
+    
+    conn.query(sql, function(err, rows){        
+        if(rows){
+            response.render("lifeboard", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
+    })
+   
+})
+
+router.get("/entertainboard", function(request, response){
+       
+    let sql = "select * from board ";
+    
+    conn.query(sql, function(err, rows){        
+        if(rows){
+            response.render("entertainboard", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
+    })
+   
+})
+
 router.get("/board_write", function(request, response){
 
     response.render("board_write", {
@@ -422,12 +490,13 @@ router.get("/board_write", function(request, response){
 
 router.post("/board_submit", function(request, response){
     
-    let user_ni
-    let title = request.body.email;
-    let content = request.body.pw;
-    let sql = "insert into board value(?,?,?)"
+    let user = request.session.user;
+    let user_nick = user.user_nick;
+    let title = request.body.title;
+    let content = request.body.content;
+    let sql = "insert into board() value(?,?,?)"
 
-    conn.query(sql,[],function(err, rows){  
+    conn.query(sql,[title,content,user_nick],function(err, rows){  
         console.log(rows.length);
 
         if(rows.length > 0){

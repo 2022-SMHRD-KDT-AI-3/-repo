@@ -23,8 +23,12 @@
 								<nav>
 									<ul>
 										<ul>
-											<li><a href="./login.html">로그인</a></li>
-											<li><a href="./join.html">회원가입</a></li>
+											<%if (user==null){%>
+												<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
+												<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
+											<%} else {%>
+												<a href="http://127.0.0.1:3000/logout">로그아웃</a>
+											<%}%>
 										</ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
@@ -37,10 +41,11 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="key.html">뉴스</a></li>
-							<li><a href="feed.html">피드</a></li>
-							<li><a href="board.html">자유게시판</a></li>
-							<li><a href="today.html">투데이 뉴스</a></li>
+							<li><a href="http://127.0.0.1:3000/main">뉴스</a></li>
+							<li><a href="http://127.0.0.1:3000/feed">피드</a></li>
+							<li><a href="http://127.0.0.1:3000/board">자유 게시판</a></li>
+							<li><a href="http://127.0.0.1:3000/today">투데이 뉴스</a></li>
+							<li><a href="elements.html"></a></li>
 						</ul>
 					</nav>
 
@@ -51,74 +56,38 @@
 							<h1>자유게시판</h1>
 							<h1></h1>
 								<div class="key_choice">
-									<span><a href="board.html" class="button">전체글</a></span>
-									<span><a href="boardSociety.html" class="button">정치/경제/사회</a></span>
-									<span><a href="boardSports.html" class="button" id="choice">스포츠/게임</a></span>
-									<span><a href="boardCulture.html" class="button">생활문화</a></span>
-									<span><a href="boardEnter.html" class="button">연예</a></span>
+									<span><a href="http://127.0.0.1:3000/board" class="button">전체</a></span>
+									<span><a href="http://127.0.0.1:3000/societyboard" class="button">정치/경제/사회</a></span>
+									<span><a href="http://127.0.0.1:3000/sportsboard" class="button">스포츠</a></span>
+									<span><a href="http://127.0.0.1:3000/lifeboard" class="button">생활문화</a></span>
+									<span><a href="http://127.0.0.1:3000/entertainboard" class="button">연예</a></span>
 								</div>
 							<div align="right">
-								<span><a href="board_wirte.html" class="button">글작성</a></span>
+								<%if (user!=null){%>
+									<span><a href="http://127.0.0.1:3000/board_write" class="button">글작성</a></span>
+								<%}%>
 							</div>
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									
-										<section class="box feature">
-											<a href="./board_read.html" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-											<div>
-												<h2>제목</h2>
-												<p class="board_content">내용</p>
-											</div>
-										</section>
-	
+								<div class="row">
+									<%for(let i=0; i < rows.length; i++) {%>
+									<div class="col-4 col-12-medium">
+										
+											<section class="box feature">
+												<a href="http://127.0.0.1:3000/board_read" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+												<div>
+													<h2><%=rows[i].text_title%></h2>
+													<p class="board_content"><%=rows[i].text_content%></p>
+												</div>
+											</section>
+		
+									</div>
+									<%}%>
 								</div>
-								<div class="col-4 col-12-medium">
-
-										<section class="box feature">
-											<a href="./board_read.html" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-											<div class="inner">
-												<h2 class="board_content">An interesting title</h2>
-												<p class="board_content">Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-											</div>
-										</section>
-	
-								</div>
-								<div class="col-4 col-12-medium">
-
-										<section class="box feature">
-											<a href="./board_read.html" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-											<div class="inner">
-												<h2 class="board_content">Oh, and finally ...</h2>
-												<p class="board_content">Phasellus quam turpis, feugiat sit amet in, hendrerit in lectus. Praesent sed semper amet bibendum tristique fringilla.</p>
-											</div>
-										</section>
-
-								</div>
-							</div>
 						</div>
 					</div>
 					
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
-							<!-- <section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<input type="text" name="name" id="name" placeholder="Name" />
-										</div>
-										<div class="field half">
-											<input type="email" name="email" id="email" placeholder="Email" />
-										</div>
-										<div class="field">
-											<textarea name="message" id="message" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<ul class="actions">
-										<li><input type="submit" value="Send" class="primary" /></li>
-									</ul>
-								</form>
 							</section> -->
 							<section>
 								<h2>Follow</h2>
