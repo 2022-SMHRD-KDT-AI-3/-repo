@@ -414,6 +414,17 @@ input, select, textarea {
 		background-color: #95d5fca5;
 	}
 
+	h2.board_content{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	p.board_content{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 
 /* Row */
 
@@ -3057,44 +3068,6 @@ input, select, textarea {
 							opacity: 0;
 						}
 
-		/* #header2 {
-			padding: 8em 0 0.1em 0 ;
-			color: #25364f;
-		}
-	
-			#header2 .logo {
-				display: block;
-				border-bottom: 0;
-				color: inherit;
-				font-weight: 900;
-				letter-spacing: 0.35em;
-				margin: 0 0 2.5em 0;
-				text-decoration: none;
-				text-transform: uppercase;
-				display: inline-block;
-			}
-	
-				#header2 .logo > * {
-					display: inline-block;
-					vertical-align: middle;
-				}
-
-		@media screen and (max-width: 736px) {
-
-			#header {
-				padding: 4em 0 0.1em 0 ;
-			}
-
-				#header nav {
-					right: 0.5em;
-					top: 0.5em;
-				}
-
-					#header nav ul li a[href="#menu"]:before, #header nav ul li a[href="#menu"]:after {
-						background-size: 1.5em 1.5em;
-					}
-
-		} */
 
 /* Menu */
 
@@ -3300,7 +3273,7 @@ input, select, textarea {
 
 	h1 {
 		text-align: center;
-		/* margin-top: 230px; */
+		/* margin-top: 100px; */
 		/* font-size: 90px; */
 	}
 
