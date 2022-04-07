@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
 </head>
 <body class="is-preload">
     <!-- Wrapper -->
@@ -48,45 +49,40 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1><br />
-							<h1><a href="board.html">자유게시판</a></h1>
-							    <form name="BoardViewForm" method="post">
-                                    <table summary="전체 테이블 구성">
-                                        <tr>
-                                            <td colspan=2>
-                                                <table border="1" summary="목록 테이블 구성"> 
-                                                    <tr> 
-                                                        <td align=center bgcolor=#dddddd width=20%> 작성자</td>
-                                                        <td width=50%>혜선</td>
-                                                        <td align=center bgcolor=#dddddd width=20%> 작성일</td>
-                                                        <td width=40%>2022/03/31</td>
-                                                    </tr>
-                                                    <tr> 
-                                                        <td align=center bgcolor=#dddddd> 제 목</td>
-                                                        <td > 게시판 글</td>
-														<td align=center bgcolor=#dddddd>조회순</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr> 
-                                                        <td colspan=4><br>가나다라마바사<br></td>
-                                                    </tr>
-                                                    <tr>
-                                                        
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align=center> 
-                                            <div align="center">
-                                                <input type="button" value="목록" onclick="">
-                                                <input type="button" value="수정" onclick="">
-                                                <input type="button" value="답변" onclick="">
-                                                <input type="button" value="삭제" onclick=""><br>
-                                            </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+							<h1><br /></h1>
+							<h1>자유게시판</h1>
+							    <form name="" method="post">
+									<div align="right">
+										<input type="button" value="수정" onclick="">
+										<input type="button" value="삭제" onclick="">
+									</div>
+									<table class="read"> 
+										<tr> 
+											<th>작성자</th>
+											<td>혜선</td>
+											<th>작성일</th>
+											<td>2022/03/31</td>
+										</tr>
+										<tr> 
+											<th>제 목</th>
+											<td class="title">아에이오우</td>
+											<th>조회순</th>
+											<td>0</td>
+										</tr>
+										<tr class="content"> 
+											<td colspan=4><br>가나다라마바사<br></td>
+										</tr>
+										<tr>
+											
+										</tr>
+									</table>
+									<div class="feeling_div">
+										<div class="button-container like-container">
+											<button class="feeling_a">
+											  <i class="fa fa-heart"> Like</i>    
+											</button>
+										</div>
+									</div>
                                 </form>
 						</div>
 					</div>

@@ -176,6 +176,10 @@ input, select, textarea {
 		line-height: 1.3;
 		margin: 0 0 1em 0;
 		letter-spacing: -0.035em;
+		font-family: 'Black Han Sans', sans-serif;
+		font-family: 'Gowun Batang', serif;
+		font-family: 'Gowun Dodum', sans-serif;
+		font-family: 'Noto Sans KR', sans-serif;
 	}
 
 		h1 a {
@@ -414,6 +418,18 @@ input, select, textarea {
 
 	#choice{
 		background-color: #95d5fca5;
+	}
+
+	h2.board_content{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	p.board_content{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 
@@ -2483,29 +2499,38 @@ input, select, textarea {
 	}
 
 	table {
-		margin: 0 0 2em 0;
+		margin: 2em 0 2em 0;
 		width: 100%;
 	}
 
 		table tbody tr {
-			border: solid 1px #c9c9c9;
-			border-left: 0;
-			border-right: 0;
+			border: solid 1px #ffffff;
+			/* border-left: 0;
+			border-right: 0; */
 		}
 
-			table tbody tr:nth-child(2n + 1) {
-				background-color: rgba(144, 144, 144, 0.075);
+			table th {
+				/* background-color: rgba(76, 144, 228, 0.162); */
+				width: 20%;
 			}
 
 		table td {
 			padding: 0.75em 0.75em;
+
 		}
 
 		table th {
-			font-size: 0.9em;
+			font-size: 1em;
 			font-weight: 900;
-			padding: 0 0.75em 0.75em 0.75em;
-			text-align: left;
+			padding: 0.75em 0.75em 0.75em 0.75em;
+			text-align: center;
+		}
+
+		table td.submit{
+			margin-top: 10px;
+			text-align: center;
+			font-size: 1.3em;
+			background-color: rgba(76, 144, 228, 0.162);
 		}
 
 		table thead {
@@ -2541,6 +2566,42 @@ input, select, textarea {
 			table.alt tfoot {
 				border-top: 0;
 			}
+
+
+	table.read {
+		margin: 2em 0 2em 0;
+		width: 100%;
+	}
+
+		table.read tbody tr {
+			border: solid 1px #a8a8a8;
+			/* border-left: 0;
+			border-right: 0; */
+		}
+
+			table.read th {
+				background-color: rgba(76, 144, 228, 0.162);
+				width: 20%;
+			}
+
+		table.read td {
+			padding: 0.75em 0.75em;
+		}
+
+		table.read th {
+			font-size: 1em;
+			font-weight: 900;
+			padding: 0.75em 0.75em 0.75em 0.75em;
+			text-align: center;
+		}
+
+		tr.content{
+			height: 500px;
+		}
+
+		td.title{
+			width: 45%;
+		}
 
 /* Button */
 
@@ -2950,7 +3011,7 @@ input, select, textarea {
 			color: inherit;
 			font-weight: 900;
 			letter-spacing: 0.35em;
-			margin: 0 0 2.5em 0;
+			/* margin: 0 0 2.5em 0; */
 			text-decoration: none;
 			text-transform: uppercase;
 			display: inline-block;
@@ -3059,44 +3120,6 @@ input, select, textarea {
 							opacity: 0;
 						}
 
-		/* #header2 {
-			padding: 8em 0 0.1em 0 ;
-			color: #25364f;
-		}
-	
-			#header2 .logo {
-				display: block;
-				border-bottom: 0;
-				color: inherit;
-				font-weight: 900;
-				letter-spacing: 0.35em;
-				margin: 0 0 2.5em 0;
-				text-decoration: none;
-				text-transform: uppercase;
-				display: inline-block;
-			}
-	
-				#header2 .logo > * {
-					display: inline-block;
-					vertical-align: middle;
-				}
-
-		@media screen and (max-width: 736px) {
-
-			#header {
-				padding: 4em 0 0.1em 0 ;
-			}
-
-				#header nav {
-					right: 0.5em;
-					top: 0.5em;
-				}
-
-					#header nav ul li a[href="#menu"]:before, #header nav ul li a[href="#menu"]:after {
-						background-size: 1.5em 1.5em;
-					}
-
-		} */
 
 /* Menu */
 
@@ -3302,7 +3325,7 @@ input, select, textarea {
 
 	h1 {
 		text-align: center;
-		/* margin-top: 230px; */
+		/* margin-top: 100px; */
 		/* font-size: 90px; */
 	}
 
@@ -3554,10 +3577,14 @@ input, select, textarea {
 		color: black;
 	}
 	.news_1 img{
-		width: 100px;
+		width: 150px;
 		height: 100px;
 		float: left;
 		margin: 10px;
+	}
+	.number img{
+		width: 100px;
+		height: 100px;
 	}
 	.number{
 		width: 50px;
@@ -3580,6 +3607,9 @@ input, select, textarea {
 		float: left;
 		margin: 40px;
 	}
+	 .title_2{
+		 text-align: center;
+	 }
 
 
 	/* today */
@@ -3646,4 +3676,4 @@ input, select, textarea {
 		font-size: 20px;
 	}
 
-/* today_3 */
+

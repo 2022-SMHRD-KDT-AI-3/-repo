@@ -18,14 +18,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<ul class="nav">
-							<%if (user==null){%>
-								<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
-								<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
-							<%} else {%>
-								<a href="http://127.0.0.1:3000/logout">로그아웃</a>
-							<%}%>
-						</ul>
+						
 						<div class="inner">
 							
 
@@ -37,6 +30,14 @@
 							<!-- Nav -->
 								<nav>
 									<ul>
+										<ul class="nav">
+											<%if (user==null){%>
+												<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
+												<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
+											<%} else {%>
+												<a href="http://127.0.0.1:3000/logout">로그아웃</a>
+											<%}%>
+										</ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav>
