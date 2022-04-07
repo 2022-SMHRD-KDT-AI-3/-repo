@@ -375,24 +375,20 @@ router.get("/entertaintoday", function(request, response){
 
 router.get("/feed", function(request, response){
     
-    if (request.session.user==null){
-        response.render("login", {
-            user : request.session.user
-        })
-    } else {
-        let sql = "select * from Allnews ";
+    let user_nick = request.session.user.nick;
+    let sql = "select * from board where text_user = ?";
     
-        conn.query(sql, function(err, rows){        
-            if(rows){
-                response.render("feed", {
-                    user : request.session.user,
-                    rows : rows
-                })
-            } else{
-                console.log(err);
-            }
-        })
-    }       
+    conn.query(sql, function(err, rows){        
+        if(rows){
+            response.render("feed", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
+    })
+          
 })
 
 router.get("/board", function(request, response){
@@ -490,30 +486,31 @@ router.get("/board_write", function(request, response){
 
 router.post("/board_submit", function(request, response){
     
-    let user = request.session.user;
-    let user_nick = user.user_nick;
+    let user_nick = request.session.user.nick;
     let title = request.body.title;
     let content = request.body.content;
-    let sql = "insert into board() value(?,?,?)"
+    let sql = "insert into board(text_title, text_content, text_user, text_date) values(?,?,?, now())";
 
     conn.query(sql,[title,content,user_nick],function(err, rows){  
-        console.log(rows.length);
-
-        if(rows.length > 0){
             response.redirect("http://127.0.0.1:3000/board");
-        }else{
-            response.redirect("http://127.0.0.1:3000/board_write")            
-        }
     })  
 })
 
 router.get("/board_read/:text_title", function(request, response){
        
     let text_title = request.params.text_title;
-
-    response.render("board_read", {
-                    user : request.session.user                    
-                })
+    let sql = "select * from board where text_title = ? ";
+    
+    conn.query(sql, [text_title], function(err, rows){        
+        if(rows){
+            response.render("board_read", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
+    })
    
 })
 

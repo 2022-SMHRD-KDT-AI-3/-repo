@@ -60,18 +60,18 @@
                                                 <table border="1" summary="목록 테이블 구성"> 
                                                     <tr> 
                                                         <td align=center bgcolor=#dddddd> 작성자</td>
-                                                        <td>혜선</td>
+                                                        <td><%rows[0].text_user%></td>
                                                         <td align=center bgcolor=#dddddd> 작성일</td>
-                                                        <td>2022/03/31</td>
+                                                        <td><%rows[0].text_date%></td>
                                                     </tr>
                                                     <tr> 
                                                         <td align=center bgcolor=#dddddd> 제 목</td>
-                                                        <td > 게시판 글</td>
+                                                        <td><%rows[0].text_title%></td>
 														<td align=center bgcolor=#dddddd>조회수</td>
                                                         <td></td>
                                                     </tr>
                                                     <tr> 
-                                                        <td colspan=4><br>가나다라마바사<br></td>
+                                                        <td colspan=4><br><%rows[0].text_content%><br></td>
                                                     </tr>
                                                     <tr>
                                                         
