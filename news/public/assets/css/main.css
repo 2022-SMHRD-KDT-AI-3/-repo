@@ -2597,6 +2597,10 @@ input, select, textarea {
 			height: 500px;
 		}
 
+		td.title{
+			width: 45%;
+		}
+
 /* Button */
 
 	input[type="submit"],
@@ -3557,3 +3561,28 @@ input, select, textarea {
 		text-align: center;
 		
 	 }
+
+
+
+/* Like */
+	.feeling_div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	} 
+	.button-container {
+		margin-left: 20px;
+	}
+	.feeling_a {
+		background-color: #fff;
+		border: 2px solid #2199e8;
+		/* padding: 10px 20px; */
+		border-radius: 2px;
+		color: #2199e8;
+		margin: auto;
+	} 
+
+	.active {
+		background-color: #2199e8;
+		color: #fff;
+	  }
