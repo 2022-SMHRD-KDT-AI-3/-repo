@@ -53,6 +53,10 @@ table {
 
 body {
 	-webkit-text-size-adjust: none;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gowun Batang', serif;
+	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 mark {
@@ -246,6 +250,9 @@ input, select, textarea {
 		}
 
 	}
+	.sub_key{
+		text-align: center;
+	}
 
 	sub {
 		font-size: 0.8em;
@@ -263,13 +270,14 @@ input, select, textarea {
 	}
 	.primary {
 		width: 500px;
-		margin-top: 40px;
-		margin-left: 102%
+		margin: 0 auto;
+		margin-top: 30px;
 	}
 
 	.primary1 {
+		width: 500px;
 		margin-top: 40px;
-		margin-left: 106%;
+		margin-left: 102%
 	}
 
 	#name {
@@ -355,6 +363,7 @@ input, select, textarea {
 	.login {
 		color: #585858;
 		font-size: 35px;
+		margin-top: 100px;
 		text-align: center;
 	}
 
@@ -386,6 +395,36 @@ input, select, textarea {
 		text-align: left;
 	}
 
+	.list{
+		border: 1;
+		text-align:center ;
+		background-color: #dddddd;
+		width:20%
+	}
+
+	.list_sub{
+		width: 50%;
+	}
+
+	.key_choice{
+		text-align: center;
+	}
+
+	#choice{
+		background-color: #95d5fca5;
+	}
+
+	h2.board_content{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	p.board_content{
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 
 /* Row */
 
@@ -2906,6 +2945,12 @@ input, select, textarea {
 	#header {
 		padding: 8em 0 0.1em 0 ;
 		color: rgb(255, 255, 255);
+		background-image: url('https://cdn.wallpapersafari.com/92/15/Pxtj7U.jpg');
+		/* background-image: url('https://www.10wallpaper.com/wallpaper/2560x1600/1811/Blue_Galaxy_2018_Nebula_Universe_Space_2560x1600.jpg'); */
+		/* background-image: url('https://thejesterscorner.files.wordpress.com/2012/09/blue_galaxy_2-wallpaper-2560x1440.jpg'); */
+		background-repeat: no-repeat;
+		background-size : cover ;
+		/* text-align: center; */
 	}
 
 		#header .logo {
@@ -2921,7 +2966,7 @@ input, select, textarea {
 		}
 
 			#header .logo > * {
-				background-color: #2675dc;
+				/* background-color: #2675dc; */
 				display: inline-block;
 				vertical-align: middle;
 			}
@@ -2968,7 +3013,8 @@ input, select, textarea {
 						height: 3em;
 						line-height: 3em;
 						padding: 0 1.5em;
-						background-color: rgba(255, 255, 255, 0.5);
+						/* background-color: rgba(255, 255, 255, 0.5); */
+						color: white;
 						border-radius: 4px;
 						border: 0;
 						font-size: 0.8em;
@@ -3022,44 +3068,6 @@ input, select, textarea {
 							opacity: 0;
 						}
 
-		#header2 {
-			padding: 8em 0 0.1em 0 ;
-			color: #2b7af1;
-		}
-	
-			#header2 .logo {
-				display: block;
-				border-bottom: 0;
-				color: inherit;
-				font-weight: 900;
-				letter-spacing: 0.35em;
-				margin: 0 0 2.5em 0;
-				text-decoration: none;
-				text-transform: uppercase;
-				display: inline-block;
-			}
-	
-				#header2 .logo > * {
-					display: inline-block;
-					vertical-align: middle;
-				}
-
-		@media screen and (max-width: 736px) {
-
-			#header {
-				padding: 4em 0 0.1em 0 ;
-			}
-
-				#header nav {
-					right: 0.5em;
-					top: 0.5em;
-				}
-
-					#header nav ul li a[href="#menu"]:before, #header nav ul li a[href="#menu"]:after {
-						background-size: 1.5em 1.5em;
-					}
-
-		}
 
 /* Menu */
 
@@ -3087,7 +3095,7 @@ input, select, textarea {
 		max-width: 80%;
 		height: 100%;
 		-webkit-overflow-scrolling: touch;
-		background: #2675dc;
+		background: #20467ae8;
 		color: #ffffff;
 		cursor: default;
 		visibility: hidden;
@@ -3247,6 +3255,7 @@ input, select, textarea {
 			opacity: 1;
 		}
 
+
 /* Main */
 
 	#main {
@@ -3262,12 +3271,18 @@ input, select, textarea {
 
 		}
 
+	h1 {
+		text-align: center;
+		/* margin-top: 100px; */
+		/* font-size: 90px; */
+	}
+
 	
 /* Footer */
 
 	#footer {
 		padding: 5em 0 6em 0 ;
-		background-color: #4dacf434;
+		background-color: #3e7aa834;
 	}
 
 		#footer > .inner {
@@ -3428,3 +3443,71 @@ input, select, textarea {
 			}
 
 		}
+
+
+/* search */
+	h3 {
+		text-align: center;
+		font-size: 90px;
+		margin: auto;
+	}
+	h3 span:nth-child(1) {
+		color:#4285f4;
+	}
+	h3 span:nth-child(2) {
+		color:#ea4335;
+	}
+	h3 span:nth-child(3) {
+		color:#fbbc05;
+	}
+	h3 span:nth-child(4) {
+		color:#4285f4;
+	}
+	h3 span:nth-child(5) {
+		color:#34a853;
+	}
+	h3 span:nth-child(6) {
+		color:#ea4335;
+	}
+	h3 sub{
+		font-size: 20px;
+		text-align: right;
+	}
+
+
+
+	.search_box {
+		width: 500px;
+		/* height: 50px; */
+		border: 1px solid #2f7ab8;
+		margin: 0 auto;
+		
+	 }
+	 
+	 .search_box input {
+		width: 90%;
+		height: 46px;
+		padding-left: 12px;
+		padding-right: 12px;
+		border: none;
+		outline: none;
+		font-size: 18px;
+		float: left;   
+	 }
+	 
+	 .search_box button {
+		width: 10%;
+		height: 50px;
+		margin: 0;
+		padding: 0;
+		border: none;
+		background: #2f7ab8;
+	 
+	 }
+	 
+	 .search_box i {
+		color: white;
+		font-size: 22px;
+		text-align: center;
+		
+	 }
