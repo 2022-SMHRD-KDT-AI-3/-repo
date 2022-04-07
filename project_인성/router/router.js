@@ -470,12 +470,21 @@ router.get("/delete", function(request, response){
 })
 
 router.get("/link/:news_head", function(request, response){
-  
+
     let news_head = request.params.news_head;
-    let sql1 = 'select distinct news_url from Allnews where news_head = ?; ' + 'update Allnews set news_count++ where news_head = ?;';
+    let sql1 = 'select distinct news_url from Allnews where news_head = ?;';
+    let sql2 = 'update Allnews set news_count = news_count + 1 where news_head = ?;';
     
-    conn.query(sql1,[news_head, news_head],function(err, rows){         
-        if(rows) {            
+    conn.query(sql2,[news_head],function(err, rows){         
+        if(rows) {
+            console.log("성공");
+        }else{ 
+            console.log(err);
+        }        
+    })
+
+    conn.query(sql1,[news_head],function(err, rows){         
+        if(rows) {
             response.redirect(rows[0].news_url);
             console.log("성공");
         }else{ 
