@@ -14,8 +14,12 @@
 				<!-- Header -->
 					<header id="header">
 						<ul class="nav">
-							<li><a href="./login.html">로그인</a></li>
-							<li><a href="./join.html">회원가입</a></li>
+							<%if (user==null){%>
+								<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
+								<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
+							<%} else {%>
+								<a href="http://127.0.0.1:3000/logout">로그아웃</a>
+							<%}%>
 						</ul>
 						<div class="inner">
 							
@@ -75,7 +79,7 @@
 												<tr>
 													<td colspan="2"><div align="center">
 													<input type="submit" value="등록" >
-													<input type="button" value="취소" onclick=""></div>
+													<input type="button" value="취소" onclick="goBack()"></div>
 													</td>
 												</tr> 
 											</table>
@@ -133,6 +137,11 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+			function goBack() {
+			window.history.back();		
+		}		
+		</script>
 
 </body>
 </html>

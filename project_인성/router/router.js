@@ -416,17 +416,8 @@ router.get("/board_write", function(request, response){
 })
 
 router.post("/board_submit", function(request, response){
-        
-    // let sql = "select * from Allnews where news_key = ?";
     
-    // conn.query(sql,[email,pw,nick,name],function(err, rows){
-    //     if(rows) {
-    //         response.redirect("http://127.0.0.1:3000/board")
-    //         console.log("성공");
-    //     }else{
-    //         console.log(err);
-    //     }
-    // })
+    let sql = "insert into board value(?,?,?)"
 
     response.redirect("http://127.0.0.1:3000/board");
    
