@@ -53,6 +53,10 @@ table {
 
 body {
 	-webkit-text-size-adjust: none;
+	font-family: 'Black Han Sans', sans-serif;
+	font-family: 'Gowun Batang', serif;
+	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 mark {
@@ -246,6 +250,9 @@ input, select, textarea {
 		}
 
 	}
+	.sub_key{
+		text-align: center;
+	}
 
 	sub {
 		font-size: 0.8em;
@@ -397,6 +404,14 @@ input, select, textarea {
 
 	.list_sub{
 		width: 50%;
+	}
+
+	.key_choice{
+		text-align: center;
+	}
+
+	#choice{
+		background-color: #95d5fca5;
 	}
 
 
@@ -3481,17 +3496,22 @@ input, select, textarea {
 	h3 span:nth-child(6) {
 		color:#ea4335;
 	}
+	h3 sub{
+		font-size: 20px;
+		text-align: right;
+	}
 
 
 
 	.search_box {
-		width: 520px;
-		height: 50px;
-		border: 2px solid #2f7ab8;
+		width: 500px;
+		/* height: 50px; */
+		border: 1px solid #2f7ab8;
 		margin: 0 auto;
-	}
-	
-	.search_box input {
+		
+	 }
+	 
+	 .search_box input {
 		width: 90%;
 		height: 46px;
 		padding-left: 12px;
@@ -3499,21 +3519,22 @@ input, select, textarea {
 		border: none;
 		outline: none;
 		font-size: 18px;
-		
-	}
-	
-	.search_box button {
+		float: left;   
+	 }
+	 
+	 .search_box button {
 		width: 10%;
 		height: 50px;
 		margin: 0;
 		padding: 0;
 		border: none;
 		background: #2f7ab8;
-		
-	}
-	
-	.search_box i {
+	 
+	 }
+	 
+	 .search_box i {
 		color: white;
 		font-size: 22px;
 		text-align: center;
-	}
+		
+	 }
