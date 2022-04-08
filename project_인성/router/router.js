@@ -513,7 +513,7 @@ router.get("/board_read", function(request, response){
     //     }
     // })
 
-    response.render("board_read", {
+    response.render("board_read1", {
         user : request.session.user
     })
    
