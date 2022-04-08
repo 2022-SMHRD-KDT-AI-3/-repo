@@ -48,7 +48,7 @@ router.get("/join", function(request, response){
 
 router.post("/join_exe", function(request, response){      
 
-    let email = request.body.email;
+    let id = request.body.id;
     let pw = request.body.pw;
     let nick = request.body.nick;
     let name = request.body.name;   
@@ -56,7 +56,7 @@ router.post("/join_exe", function(request, response){
     let sql = "insert into users values(?,?,?,?)";    // sql 자체에있는 세미콜론은 안가져와도됨 !!!   
                                                                     // 물음표에 사용자가 입력한값 들어감
                                                                     // now() : mysql 현재 시간값    
-    conn.query(sql,[email,pw,nick,name],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
+    conn.query(sql,[id,pw,nick,name],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
         //sql,[id,pw,nick] 사용자가 입력할값 순서대로 넣어준다
         if(rows) { //만약 rows 값이 트루면
             response.redirect("http://127.0.0.1:3000/main")
@@ -77,21 +77,21 @@ router.get("/login", function(request, response){
 
 router.post("/login_exe", function(request, response){        
 
-    let email = request.body.email;
+    let id = request.body.id;
     let pw = request.body.pw;
 
-    let sql = "select * from users where email = ? and pw = ?";    // sql 자체에있는 세미콜론은 안가져와도됨 !!!   // 물음표에 사용자가 입력한값 들어감
+    let sql = "select * from users where user_id = ? and user_pw = ?";    // sql 자체에있는 세미콜론은 안가져와도됨 !!!   // 물음표에 사용자가 입력한값 들어감
       
-    conn.query(sql,[email,pw],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
+    conn.query(sql,[id,pw],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
         //sql,[id,pw,nick] 사용자가 입력할값 순서대로 넣어준다
         console.log(rows.length);
 
         if(rows.length > 0){
 
             request.session.user = {
-                "email" : rows[0].email,
-                "nick" : rows[0].nick,
-                "username" : rows[0].username
+                "email" : rows[0].user_id,
+                "nick" : rows[0].user_nick,
+                "username" : rows[0].user_name
             }
 
             response.redirect("http://127.0.0.1:3000/main");
@@ -377,7 +377,7 @@ router.get("/feed", function(request, response){
     let user_nick = request.session.user.nick;
     let sql = "select * from board where text_user = ?";
     
-    conn.query(sql, function(err, rows){        
+    conn.query(sql, [user_nick],function(err, rows){        
         if(rows){
             response.render("feed", {
                 user : request.session.user,
@@ -544,6 +544,42 @@ router.get("/link/:news_head", function(request, response){
     })
     
    
+})
+
+router.get("/update", function(request, response){
+
+    response.render("update", {
+        user : request.session.user
+    })
+    
+})
+
+router.post("/update_exe", function(request, response){
+
+    let pw = request.body.pw;
+    let nick = request.body.nick;
+    let name = request.body.name;
+    let email = request.session.user.email;
+    let sql = "";
+    
+    sql = "update users set user_pw=?, user_nick=?, user_name=?, user_id = ? where user_id = ?";
+        
+    conn.query(sql, [pw,nick,name,email], function(err, rows){
+        if(rows){
+            
+            request.session.user = {
+                "email" : email,
+                "pw" : pw,
+                "nick" : nick,
+                "name" : name
+            }
+
+            response.redirect("http://127.0.0.1:3000/feed");
+        } else{
+            console.log(err);
+        }
+    })
+
 })
 
 module.exports = router;

@@ -575,7 +575,7 @@ router.post("/update_exe", function(request, response){
     
     sql = "update users set pw=?, nick=?, username=?, email = ? where email = ?";
         
-    conn.query(sql, [pw,nick,username,email], function(err, rows){
+    conn.query(sql, [pw,nick,name,email], function(err, rows){
         if(rows){
             
             request.session.user = {
