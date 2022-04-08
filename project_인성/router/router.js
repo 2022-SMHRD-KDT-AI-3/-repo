@@ -410,7 +410,7 @@ router.get("/board", function(request, response){
 
 router.get("/societyboard", function(request, response){
        
-    let sql = "select * from board ";
+    let sql = "select * from board where text_cg = '정치/경제/사회'";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -427,7 +427,7 @@ router.get("/societyboard", function(request, response){
 
 router.get("/sportsboard", function(request, response){
        
-    let sql = "select * from board ";
+    let sql = "select * from board where text_cg = '스포츠'";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -444,7 +444,7 @@ router.get("/sportsboard", function(request, response){
 
 router.get("/lifeboard", function(request, response){
        
-    let sql = "select * from board ";
+    let sql = "select * from board where text_cg = '생활문화'";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -461,7 +461,7 @@ router.get("/lifeboard", function(request, response){
 
 router.get("/entertainboard", function(request, response){
        
-    let sql = "select * from board ";
+    let sql = "select * from board where text_cg = '연예'";
     
     conn.query(sql, function(err, rows){        
         if(rows){
