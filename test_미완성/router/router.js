@@ -89,7 +89,7 @@ router.post("/login_exe", function(request, response){
         if(rows.length > 0){
 
             request.session.user = {
-                "email" : rows[0].user_id,
+                "id" : rows[0].user_id,
                 "nick" : rows[0].user_nick,
                 "username" : rows[0].user_name
             }
@@ -559,12 +559,12 @@ router.post("/update_exe", function(request, response){
     let pw = request.body.pw;
     let nick = request.body.nick;
     let name = request.body.name;
-    let email = request.session.user.email;
+    let id = request.session.user.id;
     let sql = "";
     
     sql = "update users set user_pw=?, user_nick=?, user_name=?, user_id = ? where user_id = ?";
         
-    conn.query(sql, [pw,nick,name,email], function(err, rows){
+    conn.query(sql, [pw,nick,name,id], function(err, rows){
         if(rows){
             
             request.session.user = {
