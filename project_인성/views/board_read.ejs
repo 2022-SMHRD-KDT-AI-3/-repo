@@ -51,43 +51,40 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1><br />
-							<h1><a href="board.html">자유게시판</a></h1>
-							    <form name="BoardViewForm" >
-                                    <table summary="전체 테이블 구성">
-                                        <tr>
-                                            <td colspan=2>
-                                                <table border="1" summary="목록 테이블 구성"> 
-                                                    <tr> 
-                                                        <td align=center bgcolor=#dddddd> 작성자</td>
-                                                        <td><%rows[0].text_user%></td>
-                                                        <td align=center bgcolor=#dddddd> 작성일</td>
-                                                        <td><%rows[0].text_date%></td>
-                                                    </tr>
-                                                    <tr> 
-                                                        <td align=center bgcolor=#dddddd> 제 목</td>
-                                                        <td><%rows[0].text_title%></td>
-														<td align=center bgcolor=#dddddd>조회수</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr> 
-                                                        <td colspan=4><br><%rows[0].text_content%><br></td>
-                                                    </tr>
-                                                    <tr>
-                                                        
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align=center> 
-                                            <div align="center">
-                                                <input type="button" value="목록" onclick="location.href='http://127.0.0.1:3000/board';">
-                                                <input type="button" value="답변" onclick=""><br>
-                                            </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+							<h1><br /></h1>							                                             
+								<h1>자유게시판</h1>
+							    <form name="" method="post">
+									<div align="right">
+										<input type="button" value="수정" onclick="">
+										<input type="button" value="삭제" onclick="">
+									</div>
+									<table class="read"> 
+										<tr> 
+											<th>작성자</th>
+											<td><%rows[0].text_user%></td>
+											<th>작성일</th>
+											<td><%rows[0].text_date%></td>
+										</tr>
+										<tr> 
+											<th>제 목</th>
+											<td class="title"><%rows[0].text_title%></td>
+											<th>조회수</th>
+											<td>0</td>
+										</tr>
+										<tr class="content"> 
+											<td colspan=4><br><%rows[0].text_content%><br></td>
+										</tr>
+										<tr>
+											
+										</tr>
+									</table>
+									<div class="feeling_div">
+										<div class="button-container like-container">
+											<button class="feeling_a">
+											  <i class="fa fa-heart"> Like</i>    
+											</button>
+										</div>
+									</div>
                                 </form>
 						</div>
 					</div>
