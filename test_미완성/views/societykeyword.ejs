@@ -63,9 +63,9 @@
 								<h1><br />
 								<a href="http://127.0.0.1:3000/main">오늘의 뉴스</a></h1>
 								<span><a href="http://127.0.0.1:3000/main" class="button">전체</a></span>
-								<span><a href="http://127.0.0.1:3000/society" class="button">정치/경제/사회</a></span>
-								<span><a href="http://127.0.0.1:3000/sports" class="button">스포츠/게임</a></span>
-								<span><a href="http://127.0.0.1:3000/life" class="button">생활문화</a></span>
+								<span><a href="http://127.0.0.1:3000/society" class="button" id="choice">정치/경제/사회</a></span>
+								<span><a href="http://127.0.0.1:3000/sports" class="button">스포츠</a></span>
+								<span><a href="http://127.0.0.1:3000/life" class="button">생활/문화</a></span>
 								<span><a href="http://127.0.0.1:3000/entertain" class="button">연예</a></span>								
 								<form action="http://127.0.0.1:3000/societykeyword" method="post">
 									<input type="text" name= keyword placeholder="키워드를 입력해주세요">
@@ -76,7 +76,7 @@
 									<%for(let i=0; i < rows.length; i++) {%>
 										<article class="style1">
 											<span class="image">
-												<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F014%2F2022%2F03%2F29%2F4810922.jpg&type=ff264_180&expire=2&refresh=true" alt="" />
+												<img src="<%=rows[i].news_head%>" alt="" />
 											</span>
 											<a href="http://127.0.0.1:3000/link/<%=rows[i].news_head%>" target="blank">
 												<h2><%=rows[i].news_head%></h2>
