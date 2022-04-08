@@ -192,8 +192,7 @@ router.post("/keyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";    
-    // let sql = "select * from allnews where news_key = (select key_no from keywords where key_name = ?)"
-    // "update keywords set key_count = key_count + 1 where key_name = ?;";
+    
     let sql = "select distinct news_head, news_url, news_summ from allnews where news_head like ?;";
     // let sql2 = "update keywords set key_count = key_count + 1 where key_name = ?;";
 
