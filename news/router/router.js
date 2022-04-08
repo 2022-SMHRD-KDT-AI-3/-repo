@@ -444,7 +444,7 @@ router.get("/sportsboard", function(request, response){
 
 router.get("/lifeboard", function(request, response){
        
-    let sql = "select * from board where text_cg = '생활문화'";
+    let sql = "select * from board where text_cg = '생활/문화'";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -513,7 +513,7 @@ router.get("/board_read", function(request, response){
     //     }
     // })
 
-    response.render("board_read", {
+    response.render("board_read1", {
         user : request.session.user
     })
    
