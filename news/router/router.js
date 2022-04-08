@@ -25,7 +25,7 @@ router.get("/main", function(request, response){
     conn.query(sql, function(err, rows){
         if(rows){
             console.log(rows);
-            response.render("index", {
+            response.render("key", {
                 user : request.session.user,
                 rows : rows
             })
