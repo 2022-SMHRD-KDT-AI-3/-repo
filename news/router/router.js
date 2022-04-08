@@ -377,7 +377,7 @@ router.get("/feed", function(request, response){
     let user_nick = request.session.user.nick;
     let sql = "select * from board where text_user = ?";
     
-    conn.query(sql, function(err, rows){        
+    conn.query(sql, [user_nick], function(err, rows){        
         if(rows){
             response.render("feed", {
                 user : request.session.user,
