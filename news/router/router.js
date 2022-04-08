@@ -385,6 +385,7 @@ router.get("/feed", function(request, response){
             })
         } else{
             console.log(err);
+            response.redirect("http://127.0.0.1:3000/main")
         }
     })
           
@@ -554,6 +555,42 @@ router.get("/link/:news_head", function(request, response){
     })
     
    
+})
+
+router.get("/update", function(request, response){
+
+    response.render("update", {
+        user : request.session.user
+    })
+    
+})
+
+router.post("/update_exe", function(request, response){
+
+    let pw = request.body.pw;
+    let nick = request.body.nick;
+    let name = request.body.name;
+    let email = request.session.user.email;
+    let sql = "";
+    
+    sql = "update users set pw=?, nick=?, username=?, email = ? where email = ?";
+        
+    conn.query(sql, [pw,nick,username,email], function(err, rows){
+        if(rows){
+            
+            request.session.user = {
+                "email" : email,
+                "pw" : pw,
+                "nick" : nick,
+                "name" : name
+            }
+
+            response.redirect("http://127.0.0.1:3000/feed");
+        } else{
+            console.log(err);
+        }
+    })
+
 })
 
 module.exports = router;
