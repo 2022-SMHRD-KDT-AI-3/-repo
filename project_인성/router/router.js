@@ -489,27 +489,32 @@ router.post("/board_submit", function(request, response){
     let user_nick = request.session.user.nick;
     let title = request.body.title;
     let content = request.body.content;
-    let sql = "insert into board(text_title, text_content, text_user, text_date) values(?,?,?, now())";
+    let category = request.body.category;
+    let sql = "insert into board(text_title, text_content, text_user, text_date, text_view, text_cg) values(?,?,?, now(), 0, ?)";
 
-    conn.query(sql,[title,content,user_nick],function(err, rows){  
+    conn.query(sql,[title,content,user_nick,category],function(err, rows){  
             response.redirect("http://127.0.0.1:3000/board");
     })  
 })
 
-router.get("/board_read/:text_title", function(request, response){
+router.get("/board_read", function(request, response){
        
-    let text_title = request.params.text_title;
-    let sql = "select * from board where text_title = ? ";
+    // let text_title = request.params.text_title;
+    // let sql = "select * from board where text_title = ? ";
     
-    conn.query(sql, [text_title], function(err, rows){        
-        if(rows){
-            response.render("board_read", {
-                user : request.session.user,
-                rows : rows
-            })
-        } else{
-            console.log(err);
-        }
+    // conn.query(sql, [text_title], function(err, rows){        
+    //     if(rows){
+    //         response.render("board_read", {
+    //             user : request.session.user,
+    //             rows : rows
+    //         })
+    //     } else{
+    //         console.log(err);
+    //     }
+    // })
+
+    response.render("board_read", {
+        user : request.session.user
     })
    
 })

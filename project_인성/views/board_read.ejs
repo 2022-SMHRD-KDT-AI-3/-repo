@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	
 </head>
 <body class="is-preload">
     <!-- Wrapper -->
@@ -23,12 +24,10 @@
 							<!-- Nav -->
 								<nav>
 									<ul>
-										<%if (user==null){%>
-											<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
-											<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
-										<%} else {%>
-											<a href="http://127.0.0.1:3000/logout">로그아웃</a>
-										<%}%>
+										<ul>
+											<li><a href="./login.html">로그인</a></li>
+											<li><a href="./join.html">회원가입</a></li>
+										</ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav>
@@ -40,19 +39,18 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="http://127.0.0.1:3000/main">뉴스</a></li>
-							<li><a href="http://127.0.0.1:3000/feed">피드</a></li>
-							<li><a href="http://127.0.0.1:3000/board">자유 게시판</a></li>
-							<li><a href="http://127.0.0.1:3000/today">투데이 뉴스</a></li>
-							<li><a href="elements.html"></a></li>
+							<li><a href="key.html">뉴스</a></li>
+							<li><a href="feed.html">피드</a></li>
+							<li><a href="board.html">자유게시판</a></li>
+							<li><a href="today.html">투데이 뉴스</a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1><br /></h1>							                                             
-								<h1>자유게시판</h1>
+							<h1><br /></h1>
+							<h1>자유게시판</h1>
 							    <form name="" method="post">
 									<div align="right">
 										<input type="button" value="수정" onclick="">
@@ -61,18 +59,18 @@
 									<table class="read"> 
 										<tr> 
 											<th>작성자</th>
-											<td><%rows[0].text_user%></td>
+											<td>혜선</td>
 											<th>작성일</th>
-											<td><%rows[0].text_date%></td>
+											<td>2022/03/31</td>
 										</tr>
 										<tr> 
 											<th>제 목</th>
-											<td class="title"><%rows[0].text_title%></td>
-											<th>조회수</th>
+											<td class="title">아에이오우</td>
+											<th>조회순</th>
 											<td>0</td>
 										</tr>
 										<tr class="content"> 
-											<td colspan=4><br><%rows[0].text_content%><br></td>
+											<td colspan=4><br>가나다라마바사<br></td>
 										</tr>
 										<tr>
 											
