@@ -20,7 +20,7 @@ router.get("/main", function(request, response){
     //     user : request.session.user     // 로그인x : null / 로그인o : 회원정보
     // })
 
-    let sql = "select distinct news_head, news_url, news_summ from Allnews";
+    let sql = "select distinct news_head, news_url, news_summ from Allnews order by news_date";
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -114,7 +114,7 @@ router.get("/logout", function(request, response){
 
 router.get("/society", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '사회'"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '정치/경제/사회' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -133,7 +133,7 @@ router.get("/society", function(request, response){
 
 router.get("/sports", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '스포츠'"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '스포츠' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -152,7 +152,7 @@ router.get("/sports", function(request, response){
 
 router.get("/life", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '생활문화'"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '생활문화' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -171,7 +171,7 @@ router.get("/life", function(request, response){
 
 router.get("/entertain", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '연예'"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '연예' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
