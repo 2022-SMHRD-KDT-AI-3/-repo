@@ -16,27 +16,46 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 
+				<!-- Header --><!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Hello News</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
 				<!-- Header -->
 					<header id="header">
-						<ul class="nav">
-							<%if (user==null){%>
-								<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
-								<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
-							<%} else {%>
-								<a href="http://127.0.0.1:3000/logout">로그아웃</a>
-							<%}%>
-						</ul>
 						<div class="inner">
 							
 
 							<!-- Logo -->
-								<a href="index.html" class="logo">
-									<h1><span class="title">Hello News</span></h1>
+								<a href="key.html" class="logo">
+									<!-- <h1><span class="title">Hello News</span></h1> -->
+									<h1><span class="title"><img src="./images/logo.png" alt="" width="700"></span></h1>
 								</a>
 
 							<!-- Nav -->
 								<nav>
 									<ul>
+										<ul>
+											<%if (user==null){%>
+												<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
+												<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
+											<%} else {%>
+												<a href="http://127.0.0.1:3000/logout">로그아웃</a>
+											<%}%>
+										</ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav>
@@ -52,46 +71,69 @@
 							<li><a href="http://127.0.0.1:3000/feed">피드</a></li>
 							<li><a href="http://127.0.0.1:3000/board">자유 게시판</a></li>
 							<li><a href="http://127.0.0.1:3000/today">투데이 뉴스</a></li>
-							<li><a href="elements.html"></a></li>
 						</ul>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<header>
-								<h1><br />
-								<a href="http://127.0.0.1:3000/main">오늘의 뉴스</a></h1>
-								<span><a href="http://127.0.0.1:3000/main" class="button">전체</a></span>
-								<span><a href="http://127.0.0.1:3000/society" class="button">정치/경제/사회</a></span>
-								<span><a href="http://127.0.0.1:3000/sports" class="button" id="choice">스포츠</a></span>
-								<span><a href="http://127.0.0.1:3000/life" class="button">생활/문화</a></span>
-								<span><a href="http://127.0.0.1:3000/entertain" class="button">연예</a></span>								
+							<h3><sub>키워드 뉴스</sub></h3>
+								<h3><span>K</span><span>e</span><span>y</span><span>g</span><span>l</span><span>e</span></h3>
+								<h1></h1>
+								<div class="key_choice">
+									<span><a href="http://127.0.0.1:3000/main" class="button">전체</a></span>
+									<span><a href="http://127.0.0.1:3000/society" class="button">정치/경제/사회</a></span>
+									<span><a href="http://127.0.0.1:3000/sports" class="button" id="choice">스포츠</a></span>
+									<span><a href="http://127.0.0.1:3000/life" class="button">생활/문화</a></span>
+									<span><a href="http://127.0.0.1:3000/entertain" class="button">연예</a></span>
+								</div>
 								<form action="http://127.0.0.1:3000/sportskeyword" method="post">
-									<input type="text" name= keyword placeholder="키워드를 입력해주세요">
-									<input type="submit" value="검색">
-									현재 검색 키워드 : <%=keyword%> 
-								</form>								
-								<section class="tiles">
-									<%for(let i=0; i < rows.length; i++) {%>
-										<article class="style1">
-											<span class="image">
-												<img src="<%=rows[i].news_img%>" alt="" />
-											</span>
-											<a href="http://127.0.0.1:3000/link/<%=rows[i].news_head%>" target="blank">
-												<h2><%=rows[i].news_head%></h2>
-												<div class="content">
-													<span><%=rows[i].news_summ%></span>
-												</div>
-											</a>
-										</article>
-										<%}%>
-								</section>								
+								<div class="search_box">
+									<input type="text" maxlength="225" placeholder="키워드를 입력해주세요." name="keyword">
+									<button type="submit" class="float-right"><i class="fa fa-search"></i></button>
+								</div>
+								<h4 class="keyword">현재 검색 키워드 : <%=keyword%></h4>
+							</form>
+							<section class="tiles">
+								<%for(let i=0; i < rows.length; i++) {%>
+									<article class="style1">
+										<span class="image">
+											<img src="<%=rows[i].news_img%>" alt="" />
+										</span>
+										<a href="http://127.0.0.1:3000/link/<%=rows[i].news_head%>" target="blank">
+											<h2><%=rows[i].news_head%></h2>
+											<div class="content">
+												<span><%=rows[i].news_summ%></span>
+											</div>
+										</a>
+									</article>
+									<%}%>
+							</section>
 						</div>
 					</div>
 
+				<!-- Footer -->
 					<footer id="footer">
-						<div class="inner">						
+						<div class="inner">
+							<!-- <section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section> -->
 							<section>
 								<h2>Follow</h2>
 								<ul class="icons">
@@ -111,7 +153,7 @@
 						</div>
 					</footer>
 
-			</div>
+			
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -119,6 +161,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			
+		</div>
 	</body>
 </html>
