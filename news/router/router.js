@@ -502,6 +502,7 @@ router.get("/board_read/:text_title", function(request, response){
     let text_title = request.params.text_title;
     let sql = "select * from board where text_title = ? ";
     
+<<<<<<< HEAD
     conn.query(sql, [text_title], function(err, rows){        
         if(rows){
             response.render("board_read", {
@@ -511,8 +512,23 @@ router.get("/board_read/:text_title", function(request, response){
         } else{
             console.log(err);
         }
-    })
+=======
+    // conn.query(sql, [text_title], function(err, rows){        
+    //     if(rows){
+    //         response.render("board_read", {
+    //             user : request.session.user,
+    //             rows : rows
+    //         })
+    //     } else{
+    //         console.log(err);
+    //     }
+    // })
    
+    response.render("board_read", {
+        user : request.session.user
+>>>>>>> 502166d77fb891305d75d7b96cc0f687715db027
+    })
+
 })
 
 router.get("/delete", function(request, response){
@@ -593,4 +609,9 @@ router.post("/update_exe", function(request, response){
 
 })
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 502166d77fb891305d75d7b96cc0f687715db027
 module.exports = router;

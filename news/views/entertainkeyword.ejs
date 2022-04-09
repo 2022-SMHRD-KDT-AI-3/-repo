@@ -87,6 +87,7 @@
 									<span><a href="http://127.0.0.1:3000/life" class="button">생활/문화</a></span>
 									<span><a href="http://127.0.0.1:3000/entertain" class="button" id="choice">연예</a></span>
 								</div>
+<<<<<<< HEAD
 								<form action="http://127.0.0.1:3000/entertainkeyword" method="post"></form>
 									<div class="search_box">
 										<input type="text" maxlength="225" placeholder="키워드를 입력해주세요.">
@@ -112,6 +113,30 @@
 										</article>
 										<%}%>
 								<!-- </section>								 -->
+=======
+								<form action="http://127.0.0.1:3000/entertainkeyword" method="post">
+								<div class="search_box">
+									<input type="text" maxlength="225" placeholder="키워드를 입력해주세요." name="keyword">
+									<button type="submit" class="float-right"><i class="fa fa-search"></i></button>
+								</div>
+								<h4 class="keyword">현재 검색 키워드 : <%=keyword%></h4>
+							</form>
+							<section class="tiles">
+								<%for(let i=0; i < rows.length; i++) {%>
+									<article class="style1">
+										<span class="image">
+											<img src="https://search.pstatic.net/common/?src=https%3A%2F%2Fimgnews.pstatic.net%2Fimage%2Forigin%2F014%2F2022%2F03%2F29%2F4810922.jpg&type=ff264_180&expire=2&refresh=true" alt="" />
+										</span>
+										<a href="http://127.0.0.1:3000/link/<%=rows[i].news_head%>" target="blank">
+											<h2><%=rows[i].news_head%></h2>
+											<div class="content">
+												<span><%=rows[i].news_summ%></span>
+											</div>
+										</a>
+									</article>
+									<%}%>
+							</section>
+>>>>>>> 502166d77fb891305d75d7b96cc0f687715db027
 						</div>
 					</div>
 

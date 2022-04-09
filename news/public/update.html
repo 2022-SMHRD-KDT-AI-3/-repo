@@ -52,10 +52,11 @@
                     <h2 class="login">회원정보수정</h2>
                     <center>
                     <form method="post" action="#">
-                        <a href="index.html" class="image avatar"><img src="../public/resources/assets/css/images/profile.jpg" alt="" width="200" height="200"/></a><br>
                         <form action="http://127.0.0.1:3000/uploads" method="post" enctype="multipart/form-data">
-                            <input type="file" name="file">
-                            <input type="submit" value="전송">
+                            <div class="image-container">
+                                <img id="preview-image" src="../public/resources/assets/css/images/profile.jpg" width="200" height="200">
+                                <input style="display: block;" type="file" id="input-image">
+                            </div>
                         </form>
                             <input type="email" name="email" id="email" placeholder="내 이메일주소 나오기.." /><br>                  
                             <input type="password" name="pw" id="pw" placeholder="새 비밀번호를 입력하세요" /><br> 
@@ -69,7 +70,7 @@
                             </div>
                         
                     </form>
-                </center>
+                    </center>
                 </section>
             </div>
             
