@@ -497,22 +497,26 @@ router.post("/board_submit", function(request, response){
     })  
 })
 
-router.get("/board_read/:text_title", function(request, response){
+router.get("/board_read", function(request, response){
        
-    let text_title = request.params.text_title;
-    let sql = "select * from board where text_title = ? ";
+    // let text_title = request.params.text_title;
+    // let sql = "select * from board where text_title = ? ";
     
-    conn.query(sql, [text_title], function(err, rows){        
-        if(rows){
-            response.render("board_read", {
-                user : request.session.user,
-                rows : rows
-            })
-        } else{
-            console.log(err);
-        }
-    })
+    // conn.query(sql, [text_title], function(err, rows){        
+    //     if(rows){
+    //         response.render("board_read", {
+    //             user : request.session.user,
+    //             rows : rows
+    //         })
+    //     } else{
+    //         console.log(err);
+    //     }
+    // })
    
+    response.render("board_read", {
+        user : request.session.user
+    })
+
 })
 
 router.get("/delete", function(request, response){
@@ -592,5 +596,7 @@ router.post("/update_exe", function(request, response){
     })
 
 })
+
+
 
 module.exports = router;
