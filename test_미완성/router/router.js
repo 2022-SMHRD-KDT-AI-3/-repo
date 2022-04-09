@@ -20,12 +20,12 @@ router.get("/main", function(request, response){
     //     user : request.session.user     // 로그인x : null / 로그인o : 회원정보
     // })
 
-    let sql = "select distinct news_head, news_url, news_summ from Allnews order by news_date";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news order by news_date";
 
     conn.query(sql, function(err, rows){
         if(rows){
             console.log(rows);
-            response.render("index", {
+            response.render("key", {
                 user : request.session.user,
                 rows : rows
             })
@@ -48,7 +48,7 @@ router.get("/join", function(request, response){
 
 router.post("/join_exe", function(request, response){      
 
-    let email = request.body.email;
+    let id = request.body.id;
     let pw = request.body.pw;
     let nick = request.body.nick;
     let name = request.body.name;   
@@ -56,7 +56,7 @@ router.post("/join_exe", function(request, response){
     let sql = "insert into users values(?,?,?,?)";    // sql 자체에있는 세미콜론은 안가져와도됨 !!!   
                                                                     // 물음표에 사용자가 입력한값 들어감
                                                                     // now() : mysql 현재 시간값    
-    conn.query(sql,[email,pw,nick,name],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
+    conn.query(sql,[id,pw,nick,name],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
         //sql,[id,pw,nick] 사용자가 입력할값 순서대로 넣어준다
         if(rows) { //만약 rows 값이 트루면
             response.redirect("http://127.0.0.1:3000/main")
@@ -77,21 +77,21 @@ router.get("/login", function(request, response){
 
 router.post("/login_exe", function(request, response){        
 
-    let email = request.body.email;
+    let id = request.body.id;
     let pw = request.body.pw;
 
-    let sql = "select * from users where email = ? and pw = ?";    // sql 자체에있는 세미콜론은 안가져와도됨 !!!   // 물음표에 사용자가 입력한값 들어감
+    let sql = "select * from users where user_id = ? and user_pw = ?";    // sql 자체에있는 세미콜론은 안가져와도됨 !!!   // 물음표에 사용자가 입력한값 들어감
       
-    conn.query(sql,[email,pw],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
+    conn.query(sql,[id,pw],function(err, rows){  //sql 실행되면 만들었던 nodejs_member 테이블로 가서 입력함  그다음에 명령이 성공하든 실패하든 이쪽 뻥션으로 들어옴 실패하면 err 에 뭔가들어가고 성공하면 rows 변수에 들어감 
         //sql,[id,pw,nick] 사용자가 입력할값 순서대로 넣어준다
         console.log(rows.length);
 
         if(rows.length > 0){
 
             request.session.user = {
-                "email" : rows[0].email,
-                "nick" : rows[0].nick,
-                "username" : rows[0].username
+                "id" : rows[0].user_id,
+                "nick" : rows[0].user_nick,
+                "username" : rows[0].user_name
             }
 
             response.redirect("http://127.0.0.1:3000/main");
@@ -114,7 +114,7 @@ router.get("/logout", function(request, response){
 
 router.get("/society", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '정치/경제/사회' order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg in ('사회', '경제', '정치', '국제') order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -133,7 +133,7 @@ router.get("/society", function(request, response){
 
 router.get("/sports", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '스포츠' order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_imgfrom news where news_cg = '스포츠' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -152,7 +152,7 @@ router.get("/sports", function(request, response){
 
 router.get("/life", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '생활문화' order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '생활·문화' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -171,7 +171,7 @@ router.get("/life", function(request, response){
 
 router.get("/entertain", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '연예' order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '연예' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -192,10 +192,7 @@ router.post("/keyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";    
-    // let sql = "select * from allnews where news_key = (select key_no from keywords where key_name = ?)"
-    // "update keywords set key_count = key_count + 1 where key_name = ?;";
-    let sql = "select distinct news_head, news_url, news_summ from allnews where news_head like ?;";
-    // let sql2 = "update keywords set key_count = key_count + 1 where key_name = ?;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_head like ? order by news_date;";
 
     conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
@@ -215,9 +212,9 @@ router.post("/sportskeyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";    
-    let sql = "select distinct news_head, news_url, news_summ from allnews where news_cg = '스포츠' and news_head like ?;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '스포츠' and news_head like ? order by news_date;";
     
-    conn.query(sql, [keyword],function(err, rows){        
+    conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
             response.render("sportskeyword", {
                 user : request.session.user,
@@ -235,7 +232,7 @@ router.post("/societykeyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";
-    let sql = "select distinct news_head, news_url, news_summ from allnews where news_cg = '사회' and news_head like ?;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg in ('사회', '경제', '정치', '국제') and news_head like ? order by news_date;";
     
     conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
@@ -253,10 +250,11 @@ router.post("/societykeyword", function(request, response){
 
 router.post("/lifekeyword", function(request, response){
     
-    let keyword = request.body.keyword;    
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '생활문화' and news_key = ?";
+    let keyword = request.body.keyword;
+    let keyword1 = "%" + request.body.keyword + "%";    
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '생활·문화' and news_head like ? order by news_date;";
     
-    conn.query(sql, [keyword],function(err, rows){        
+    conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
             response.render("lifekeyword", {
                 user : request.session.user,
@@ -272,10 +270,11 @@ router.post("/lifekeyword", function(request, response){
 
 router.post("/entertainkeyword", function(request, response){
     
-    let keyword = request.body.keyword;    
-    let sql = "select distinct news_head, news_url, news_summ from Allnews where news_cg = '연예' and news_key = ?";
+    let keyword = request.body.keyword; 
+    let keyword1 = "%" + request.body.keyword + "%";   
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '연예' and news_head like ? order by news_date;";
     
-    conn.query(sql, [keyword],function(err, rows){        
+    conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
             response.render("entertainkeyword", {
                 user : request.session.user,
@@ -291,7 +290,7 @@ router.post("/entertainkeyword", function(request, response){
 
 router.get("/today", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ from Allnews order by news_count desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -308,7 +307,7 @@ router.get("/today", function(request, response){
 
 router.get("/societytoday", function(request, response){
        
-    let sql = "select * from Allnews where news_cg = '사회' order by news_count desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg in ('사회', '경제', '정치', '국제') order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -324,7 +323,7 @@ router.get("/societytoday", function(request, response){
 
 router.get("/sportstoday", function(request, response){
        
-    let sql = "select * from Allnews where news_cg = '스포츠' order by news_count desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '스포츠' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -341,7 +340,7 @@ router.get("/sportstoday", function(request, response){
 
 router.get("/lifetoday", function(request, response){
        
-    let sql = "select * from Allnews where news_cg = '생활문화' order by news_count desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '생활·문화' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -358,7 +357,7 @@ router.get("/lifetoday", function(request, response){
 
 router.get("/entertaintoday", function(request, response){
        
-    let sql = "select * from Allnews where news_cg = '연예' order by news_count desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img from news where news_cg = '연예' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -378,7 +377,7 @@ router.get("/feed", function(request, response){
     let user_nick = request.session.user.nick;
     let sql = "select * from board where text_user = ?";
     
-    conn.query(sql, function(err, rows){        
+    conn.query(sql, [user_nick],function(err, rows){        
         if(rows){
             response.render("feed", {
                 user : request.session.user,
@@ -393,7 +392,7 @@ router.get("/feed", function(request, response){
 
 router.get("/board", function(request, response){
        
-    let sql = "select * from board ";
+    let sql = "select * from board order by text_date";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -410,7 +409,7 @@ router.get("/board", function(request, response){
 
 router.get("/societyboard", function(request, response){
        
-    let sql = "select * from board where text_cg = '정치/경제/사회'";
+    let sql = "select * from board where text_cg = '정치/경제/사회' order by text_date";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -427,7 +426,7 @@ router.get("/societyboard", function(request, response){
 
 router.get("/sportsboard", function(request, response){
        
-    let sql = "select * from board where text_cg = '스포츠'";
+    let sql = "select * from board where text_cg = '스포츠' order by text_date";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -444,7 +443,7 @@ router.get("/sportsboard", function(request, response){
 
 router.get("/lifeboard", function(request, response){
        
-    let sql = "select * from board where text_cg = '생활/문화'";
+    let sql = "select * from board where text_cg = '생활/문화' order by text_date";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -461,7 +460,7 @@ router.get("/lifeboard", function(request, response){
 
 router.get("/entertainboard", function(request, response){
        
-    let sql = "select * from board where text_cg = '연예'";
+    let sql = "select * from board where text_cg = '연예' order by text_date";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -524,8 +523,8 @@ router.get("/delete", function(request, response){
 router.get("/link/:news_head", function(request, response){
 
     let news_head = request.params.news_head;
-    let sql1 = 'select distinct news_url from Allnews where news_head = ?;';
-    let sql2 = 'update Allnews set news_count = news_count + 1 where news_head = ?;';
+    let sql1 = 'select distinct news_url from news where news_head = ?;';
+    let sql2 = 'update news set news_view = news_view + 1 where news_head = ?;';
     
     conn.query(sql2,[news_head],function(err, rows){         
         if(rows) {
@@ -545,6 +544,42 @@ router.get("/link/:news_head", function(request, response){
     })
     
    
+})
+
+router.get("/update", function(request, response){
+
+    response.render("update", {
+        user : request.session.user
+    })
+    
+})
+
+router.post("/update_exe", function(request, response){
+
+    let pw = request.body.pw;
+    let nick = request.body.nick;
+    let name = request.body.name;
+    let id = request.session.user.id;
+    let sql = "";
+    
+    sql = "update users set user_pw=?, user_nick=?, user_name=?, user_id = ? where user_id = ?";
+        
+    conn.query(sql, [pw,nick,name,id], function(err, rows){
+        if(rows){
+            
+            request.session.user = {
+                "email" : email,
+                "pw" : pw,
+                "nick" : nick,
+                "name" : name
+            }
+
+            response.redirect("http://127.0.0.1:3000/feed");
+        } else{
+            console.log(err);
+        }
+    })
+
 })
 
 module.exports = router;

@@ -192,8 +192,7 @@ router.post("/keyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";    
-    // let sql = "select * from allnews where news_key = (select key_no from keywords where key_name = ?)"
-    // "update keywords set key_count = key_count + 1 where key_name = ?;";
+    
     let sql = "select distinct news_head, news_url, news_summ from allnews where news_head like ?;";
     // let sql2 = "update keywords set key_count = key_count + 1 where key_name = ?;";
 
@@ -378,7 +377,7 @@ router.get("/feed", function(request, response){
     let user_nick = request.session.user.nick;
     let sql = "select * from board where text_user = ?";
     
-    conn.query(sql, function(err, rows){        
+    conn.query(sql, [user_nick], function(err, rows){        
         if(rows){
             response.render("feed", {
                 user : request.session.user,
@@ -386,6 +385,7 @@ router.get("/feed", function(request, response){
             })
         } else{
             console.log(err);
+            response.redirect("http://127.0.0.1:3000/main")
         }
     })
           
@@ -497,24 +497,20 @@ router.post("/board_submit", function(request, response){
     })  
 })
 
-router.get("/board_read", function(request, response){
+router.get("/board_read/:text_title", function(request, response){
        
-    // let text_title = request.params.text_title;
-    // let sql = "select * from board where text_title = ? ";
+    let text_title = request.params.text_title;
+    let sql = "select * from board where text_title = ? ";
     
-    // conn.query(sql, [text_title], function(err, rows){        
-    //     if(rows){
-    //         response.render("board_read", {
-    //             user : request.session.user,
-    //             rows : rows
-    //         })
-    //     } else{
-    //         console.log(err);
-    //     }
-    // })
-
-    response.render("board_read1", {
-        user : request.session.user
+    conn.query(sql, [text_title], function(err, rows){        
+        if(rows){
+            response.render("board_read", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
     })
    
 })
@@ -559,6 +555,42 @@ router.get("/link/:news_head", function(request, response){
     })
     
    
+})
+
+router.get("/update", function(request, response){
+
+    response.render("update", {
+        user : request.session.user
+    })
+    
+})
+
+router.post("/update_exe", function(request, response){
+
+    let pw = request.body.pw;
+    let nick = request.body.nick;
+    let name = request.body.name;
+    let email = request.session.user.email;
+    let sql = "";
+    
+    sql = "update users set pw=?, nick=?, username=?, email = ? where email = ?";
+        
+    conn.query(sql, [pw,nick,name,email], function(err, rows){
+        if(rows){
+            
+            request.session.user = {
+                "email" : email,
+                "pw" : pw,
+                "nick" : nick,
+                "name" : name
+            }
+
+            response.redirect("http://127.0.0.1:3000/feed");
+        } else{
+            console.log(err);
+        }
+    })
+
 })
 
 module.exports = router;
