@@ -71,7 +71,11 @@
 									<%for(let i=0; i < rows.length; i++) {%>
 									<div class="col-4 col-12-medium">										
 											<section class="box feature">
+<<<<<<< HEAD
 												<a href="http://127.0.0.1:3000/board_read/<%=rows[i].text_title%>" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+=======
+												<a href="http://127.0.0.1:3000/board_read/<%=rows[0].text_title%>" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+>>>>>>> 1f93860aafd9276aa15165bf13cc7a26f67ea29b
 												<div>
 													<h2><%=rows[i].text_title%></h2>
 													<p class="board_content"><%=rows[i].text_content%></p>
@@ -88,10 +92,10 @@
 						<div class="inner">
 							</section> -->
 							<section>
-								<h2>Follow</h2>
+								<h2>Share</h2>
 								<ul class="icons">
-									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="javascript:shareTwitter();" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="javascript:shareFacebook();" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>

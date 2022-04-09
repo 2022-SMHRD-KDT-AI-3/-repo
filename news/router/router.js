@@ -502,16 +502,41 @@ router.get("/board_read/:text_title", function(request, response){
     let text_title = request.params.text_title;
     let sql = "select * from board where text_title = ? ";
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 1f93860aafd9276aa15165bf13cc7a26f67ea29b
     conn.query(sql, [text_title], function(err, rows){        
         if(rows){
             response.render("board_read", {
                 user : request.session.user,
                 rows : rows
             })
+<<<<<<< HEAD
   
         } else{
             console.log(err);
         }
+=======
+        } else{
+            console.log(err);
+        }
+=======
+    // conn.query(sql, [text_title], function(err, rows){        
+    //     if(rows){
+    //         response.render("board_read", {
+    //             user : request.session.user,
+    //             rows : rows
+    //         })
+    //     } else{
+    //         console.log(err);
+    //     }
+    // })
+   
+    response.render("board_read", {
+        user : request.session.user
+>>>>>>> 502166d77fb891305d75d7b96cc0f687715db027
+>>>>>>> 1f93860aafd9276aa15165bf13cc7a26f67ea29b
     })
    
 })
@@ -594,6 +619,9 @@ router.post("/update_exe", function(request, response){
 
 })
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 502166d77fb891305d75d7b96cc0f687715db027
 module.exports = router;
