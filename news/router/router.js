@@ -518,7 +518,7 @@ router.get("/board_read/:text_title", function(request, response){
     })
    
 })
-ㄴㄴ
+
 router.get("/delete", function(request, response){
 
     let text_no = request.body.text_no;
