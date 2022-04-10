@@ -4,6 +4,20 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+//sns share
+function shareTwitter() {
+    var sendText = "기사공유"; // 전달할 텍스트
+    var sendUrl = "http://127.0.0.1:3000/main"; // 전달할 URL
+    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+}
+
+function shareFacebook() {
+    var sendUrl = "http://127.0.0.1:3000/main"; // 전달할 URL
+    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+}
+
+
+
 (function($) {
 
 	var	$window = $(window),
@@ -189,6 +203,26 @@
 		$('.active').removeClass('active');
 		$(this).addClass('active');
 	});
+
+
+	// upload
+	function readImage(input) {
+		if(input.files && input.files[0]) {
+			const reader = new FileReader()
+
+			reader.onload = e => {
+				const previewImage = document.getElementById("preview-image")
+				previewImage.src = e.target.result
+			}
+
+			reader.readAsDataURL(input.files[0])
+		}
+	}
+
+	const inputImage = document.getElementById("input-image")
+	inputImage.addEventListener("change", e => {
+		readImage(e.target)
+	})
 
 
 })(jQuery);

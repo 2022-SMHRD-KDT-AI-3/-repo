@@ -290,7 +290,7 @@ router.post("/entertainkeyword", function(request, response){
 
 router.get("/today", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ, news_img from sbsdatapower order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -307,7 +307,7 @@ router.get("/today", function(request, response){
 
 router.get("/societytoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img from sbsdatapower where news_cg in ('사회', '경제', '정치', '국제') order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg in ('사회', '경제', '정치', '국제') order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -323,7 +323,7 @@ router.get("/societytoday", function(request, response){
 
 router.get("/sportstoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img from sbsdatapower where news_cg = '스포츠' order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg = '스포츠' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -340,7 +340,7 @@ router.get("/sportstoday", function(request, response){
 
 router.get("/lifetoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img from sbsdatapower where news_cg = '생활·문화' order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg = '생활·문화' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -357,7 +357,7 @@ router.get("/lifetoday", function(request, response){
 
 router.get("/entertaintoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img from sbsdatapower where news_cg = '연예' order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg = '연예' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){

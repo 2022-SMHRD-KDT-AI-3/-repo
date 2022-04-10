@@ -20,11 +20,13 @@
 			<!-- Header -->
 				<header id="header">
 					<div class="inner">
-						<a href="index.html" class="image avatar"><img src="../public/resources/assets/css/images/profile.jpg" alt="" /></a><br>
+						<a href="#" class="image avatar"><img src="../public/resources/assets/css/images/profile.jpg" alt="" /></a><br>
 						<strong class="follow">팔로잉</strong>
 						<strong class="follow">0명</strong><br>
 						<strong class="follow">팔로우</strong>
-						<strong class="follow">0명</strong>
+						<strong class="follow">0명</strong><br>
+						<br>
+						<strong class="follow"><a href="http://127.0.0.1:3000/update">회원정보수정</a></strong><br>
 					</div>				
 				</header>
 				
@@ -41,10 +43,9 @@
 							<h2>Menu</h2>
 							<ul>
 								<li><a href="http://127.0.0.1:3000/main">뉴스</a></li>
-								<li><a href="http://127.0.0.1:3000/feed">피드</a></li>
+								<li><a href="http://127.0.0.1:3000/feed">마이피드</a></li>
 								<li><a href="http://127.0.0.1:3000/board">자유 게시판</a></li>
 								<li><a href="http://127.0.0.1:3000/today">투데이 뉴스</a></li>
-								<li><a href="elements.html"></a></li>
 							</ul>
 						</nav>
 				</div>
@@ -53,12 +54,12 @@
 					<div class="inner">
 						<section id="two">
 							<h3>🌍게시물</h3>
-							<div class="row">																
+							<div class="row">
 								<%for(let i=0; i < rows.length; i++) {%>
-									<article class="col-6 col-12-xsmall work-item">
-										<a href="http://127.0.0.1:3000/board_read/<%=rows[i].news_head%>" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
-										
-									</article>
+								<article class="col-6 col-12-xsmall work-item">
+									<a href="http://127.0.0.1:3000/board_read" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+									
+								</article>
 								<%}%>
 							</div>
 						</section>
@@ -71,8 +72,8 @@
 					<footer id="footer">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<li><a href="javascript:shareTwitter();" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="javascript:shareFacebook();" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
 								<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
 								<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 							</ul>
