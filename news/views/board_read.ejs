@@ -25,8 +25,12 @@
 								<nav>
 									<ul>
 										<ul>
-											<li><a href="./login.html">로그인</a></li>
-											<li><a href="./join.html">회원가입</a></li>
+											<%if (user==null){%>
+												<li><a href="http://127.0.0.1:3000/login">로그인</a></li>
+												<li><a href="http://127.0.0.1:3000/join">회원가입</a></li>
+											<%} else {%>
+												<a href="http://127.0.0.1:3000/logout">로그아웃</a>
+											<%}%>
 										</ul>
 										<li><a href="#menu">Menu</a></li>
 									</ul>
@@ -39,10 +43,10 @@
 					<nav id="menu">
 						<h2>Menu</h2>
 						<ul>
-							<li><a href="key.html">뉴스</a></li>
-							<li><a href="feed.html">피드</a></li>
-							<li><a href="board.html">자유게시판</a></li>
-							<li><a href="today.html">투데이 뉴스</a></li>
+							<li><a href="http://127.0.0.1:3000/main">뉴스</a></li>
+							<li><a href="http://127.0.0.1:3000/feed">마이피드</a></li>
+							<li><a href="http://127.0.0.1:3000/board">자유 게시판</a></li>
+							<li><a href="http://127.0.0.1:3000/today">투데이 뉴스</a></li>
 						</ul>
 					</nav>
 
@@ -59,18 +63,18 @@
 									<table class="read"> 
 										<tr> 
 											<th>작성자</th>
-											<td><%=rows[0].text_user%></td>
+											<td></td>
 											<th>작성일</th>
-											<td><%=rows[0].text_date%></td>
+											<td></td>
 										</tr>
 										<tr> 
 											<th>제 목</th>
-											<td class="title"><%=rows[0].text_title%></td>
+											<td class="title"></td>
 											<th>조회수</th>
-											<td><%=rows[0].text_view%></td>
+											<td></td>
 										</tr>
 										<tr class="content"> 
-											<td colspan=4><br><%=rows[0].text_content%><br></td>
+											<td colspan=4><br><br></td>
 										</tr>
 										<tr>
 											

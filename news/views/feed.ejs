@@ -55,30 +55,12 @@
 						<section id="two">
 							<h3>🌍게시물</h3>
 							<div class="row">
+								<%for(let i=0; i < rows.length; i++) {%>
 								<article class="col-6 col-12-xsmall work-item">
-									<a href="http://127.0.0.1:3000/board_read/<%=rows[0].news_head%>" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
+									<a href="http://127.0.0.1:3000/board_read" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
 									
 								</article>
-								<article class="col-6 col-12-xsmall work-item">
-									<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
-									
-								</article>
-								<article class="col-6 col-12-xsmall work-item">
-									<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-									
-								</article>
-								<article class="col-6 col-12-xsmall work-item">
-									<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-									
-								</article>
-								<article class="col-6 col-12-xsmall work-item">
-									<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-									
-								</article>
-								<article class="col-6 col-12-xsmall work-item">
-									<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
-									
-								</article>
+								<%}%>
 							</div>
 						</section>
 					</div>
