@@ -55,10 +55,17 @@
 						<div class="inner">
 							<h1><br /></h1>
 							<h1>자유게시판</h1>
-							    <form name="" method="post">
+							    <form action="http://127.0.0.1:3000/delete" method="post">
 									<div align="right">
-										<input type="button" value="목록" onclick="location.href='http://127.0.0.1:3000/board';">
-										<input type="button" value="삭제" onclick="">
+										<a href="http://127.0.0.1:3000/board">목록</a>
+										<%if (user.nick==rows[0].text_user) {%>
+											<input type="hidden" name="text_title"  value="<%=rows[0].text_title%>">
+											<input type="submit" value="삭제">
+											<form action="http://127.0.0.1:3000/updateboard">
+												<input type="hidden" name="text_title"  value="<%=rows[0].text_title%>">
+												<input type="submit" value="수정">
+											</form>
+										<%}%> 											
 									</div>
 									<table class="read"> 
 										<tr> 
@@ -114,6 +121,7 @@
 					</footer>
 
 			</div>
+			
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
 		<script src="assets/js/browser.min.js"></script>

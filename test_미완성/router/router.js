@@ -528,13 +528,13 @@ router.post("/board_read", function(request, response){
    
 })
 
-router.get("/delete", function(request, response){
+router.post("/delete", function(request, response){
 
-    let text_no = request.body.text_no;
+    let text_title = request.body.text_title;
 
-    let sql = "delete from board where text_no=?";
+    let sql = "delete from board where text_title=?";
 
-    conn.query(sql, [text_no], function(err, rows){
+    conn.query(sql, [text_title], function(err, rows){
         if(rows){
             response.redirect("http://127.0.0.1:3000/board");
         } else{
@@ -605,6 +605,25 @@ router.post("/update_exe", function(request, response){
         }
     })
 
+})
+
+router.get("/updateboard", function(request, response){
+
+    let text_title = request.board.text_title;
+    let sql = 'select * from board where text_title = ?;';
+
+    conn.query(sql, [text_title], function(err, rows){
+        if(rows){
+            response.render("updateboard", {
+                user : request.session.user,
+                rows : rows
+            })
+
+        } else{
+            console.log(err);
+        }
+    })
+    
 })
 
 module.exports = router;
