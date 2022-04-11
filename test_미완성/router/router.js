@@ -20,7 +20,7 @@ router.get("/main", function(request, response){
     //     user : request.session.user     // 로그인x : null / 로그인o : 회원정보
     // })
 
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower order by news_date";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata order by news_date";
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -114,7 +114,7 @@ router.get("/logout", function(request, response){
 
 router.get("/society", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg in ('사회', '경제', '정치', '국제') order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg in ('사회', '경제', '정치', '국제') order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -133,7 +133,7 @@ router.get("/society", function(request, response){
 
 router.get("/sports", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg = '스포츠' order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg = '스포츠' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -152,7 +152,7 @@ router.get("/sports", function(request, response){
 
 router.get("/life", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg = '생활·문화' order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg = '생활·문화' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -171,7 +171,7 @@ router.get("/life", function(request, response){
 
 router.get("/entertain", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg = '연예' order by news_date"; // query문 작성
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg = '연예' order by news_date"; // query문 작성
 
     conn.query(sql, function(err, rows){
         if(rows){
@@ -192,7 +192,7 @@ router.post("/keyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";    
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_head like ? order by news_date;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_head like ? order by news_date;";
 
     conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
@@ -212,7 +212,7 @@ router.post("/sportskeyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";    
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg = '스포츠' and news_head like ? order by news_date;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg = '스포츠' and news_head like ? order by news_date;";
     
     conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
@@ -232,7 +232,7 @@ router.post("/societykeyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg in ('사회', '경제', '정치', '국제') and news_head like ? order by news_date;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg in ('사회', '경제', '정치', '국제') and news_head like ? order by news_date;";
     
     conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
@@ -252,7 +252,7 @@ router.post("/lifekeyword", function(request, response){
     
     let keyword = request.body.keyword;
     let keyword1 = "%" + request.body.keyword + "%";    
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg = '생활·문화' and news_head like ? order by news_date;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg = '생활·문화' and news_head like ? order by news_date;";
     
     conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
@@ -272,7 +272,7 @@ router.post("/entertainkeyword", function(request, response){
     
     let keyword = request.body.keyword; 
     let keyword1 = "%" + request.body.keyword + "%";   
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdatapower where news_cg = '연예' and news_head like ? order by news_date;";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_date from sbsdata where news_cg = '연예' and news_head like ? order by news_date;";
     
     conn.query(sql, [keyword1],function(err, rows){        
         if(rows){
@@ -290,7 +290,7 @@ router.post("/entertainkeyword", function(request, response){
 
 router.get("/today", function(request, response){
     
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdata order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -307,7 +307,7 @@ router.get("/today", function(request, response){
 
 router.get("/societytoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg in ('사회', '경제', '정치', '국제') order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdata where news_cg in ('사회', '경제', '정치', '국제') order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -323,7 +323,7 @@ router.get("/societytoday", function(request, response){
 
 router.get("/sportstoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg = '스포츠' order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdata where news_cg = '스포츠' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -340,7 +340,7 @@ router.get("/sportstoday", function(request, response){
 
 router.get("/lifetoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg = '생활·문화' order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdata where news_cg = '생활·문화' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -357,7 +357,7 @@ router.get("/lifetoday", function(request, response){
 
 router.get("/entertaintoday", function(request, response){
        
-    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdatapower where news_cg = '연예' order by news_view desc";
+    let sql = "select distinct news_head, news_url, news_summ, news_img, news_view from sbsdata where news_cg = '연예' order by news_view desc";
     
     conn.query(sql, function(err, rows){        
         if(rows){
@@ -523,7 +523,7 @@ router.get("/delete", function(request, response){
 router.get("/link/:news_head", function(request, response){
 
     let news_head = request.params.news_head;
-    let sql1 = 'select distinct news_url from sbsdatapower where news_head = ?;';
+    let sql1 = 'select distinct news_url from sbsdata where news_head = ?;';
     let sql2 = 'update sbsdatapower set news_view = news_view + 1 where news_head = ?;';
     
     conn.query(sql2,[news_head],function(err, rows){         
