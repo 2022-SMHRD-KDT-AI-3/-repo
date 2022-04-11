@@ -505,7 +505,7 @@ router.post("/board_read", function(request, response){
     
     let text_title = request.body.text_title;
     let sql = "select * from board where text_title = ? ";
-    let sql2 = 'update sbsdata set text_view = text_view + 1 where text_title = ?;';
+    let sql2 = 'update board set text_view = text_view + 1 where text_title = ?;';
 
     conn.query(sql, [text_title], function(err, rows){        
         if(rows){
