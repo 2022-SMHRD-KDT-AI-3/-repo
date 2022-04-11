@@ -223,6 +223,7 @@ function shareFacebook() {
 	inputImage.addEventListener("change", e => {
 		readImage(e.target)
 	})
+	
 
 
 })(jQuery);
