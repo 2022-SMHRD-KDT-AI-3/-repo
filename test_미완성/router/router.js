@@ -505,6 +505,7 @@ router.post("/board_read", function(request, response){
     
     let text_title = request.body.text_title;
     let sql = "select * from board where text_title = ? ";
+    let sql2 = 'update sbsdata set text_view = text_view + 1 where text_title = ?;';
 
     conn.query(sql, [text_title], function(err, rows){        
         if(rows){
@@ -515,6 +516,14 @@ router.post("/board_read", function(request, response){
         } else{
             console.log(err);
         }
+    })
+
+    conn.query(sql2,[text_title],function(err, rows){         
+        if(rows) {
+            console.log("성공");
+        }else{ 
+            console.log(err);
+        }        
     })
    
 })
@@ -539,7 +548,7 @@ router.get("/link/:news_head", function(request, response){
 
     let news_head = request.params.news_head;
     let sql1 = 'select distinct news_url from sbsdata where news_head = ?;';
-    let sql2 = 'update sbsdatapower set news_view = news_view + 1 where news_head = ?;';
+    let sql2 = 'update sbsdata set news_view = news_view + 1 where news_head = ?;';
     
     conn.query(sql2,[news_head],function(err, rows){         
         if(rows) {
