@@ -501,10 +501,20 @@ router.post("/board_submit", function(request, response){
     })  
 })
 
-router.get("/board_read", function(request, response){
-       
-    response.render("board_read", {
-        user : request.session.user
+router.post("/board_read", function(request, response){
+    
+    let text_title = request.body.text_title;
+    let sql = "select * from board where text_title = ? ";
+
+    conn.query(sql, [text_title], function(err, rows){        
+        if(rows){
+            response.render("board_read", {
+                user : request.session.user,
+                rows : rows
+            })
+        } else{
+            console.log(err);
+        }
     })
    
 })

@@ -63,18 +63,18 @@
 									<table class="read"> 
 										<tr> 
 											<th>작성자</th>
-											<td>혜선</td>
+											<td><%=rows[0].text_user%></td>
 											<th>작성일</th>
-											<td>2022/03/31</td>
+											<td><%=rows[0].text_date%></td>
 										</tr>
 										<tr> 
 											<th>제 목</th>
-											<td class="title">아에이오우</td>
+											<td class="title"><%=rows[0].text_title%></td>
 											<th>조회순</th>
-											<td>0</td>
+											<td><%=rows[0].text_views%></td>
 										</tr>
 										<tr class="content"> 
-											<td colspan=4><br>가나다라마바사<br></td>
+											<td colspan=4><br><%=rows[0].text_content%><br></td>
 										</tr>
 										<tr>
 											
