@@ -374,20 +374,25 @@ router.get("/entertaintoday", function(request, response){
 
 router.get("/feed", function(request, response){
     
-    let user_nick = request.session.user.nick;
-    let sql = "select * from board where text_user = ?";
-    
-    conn.query(sql, [user_nick],function(err, rows){        
-        if(rows){
-            response.render("feed", {
-                user : request.session.user,
-                rows : rows
-            })
-        } else{
-            console.log(err);
-        }
-    })
-          
+    let user = request.session.user; 
+
+    if(user==null){
+        response.redirect("http://127.0.0.1:3000/login");
+    } else {
+        let user_nick = request.session.user.nick;
+        let sql = "select * from board where text_user = ?";
+        
+        conn.query(sql, [user_nick],function(err, rows){        
+            if(rows){
+                response.render("feed", {
+                    user : request.session.user,
+                    rows : rows
+                })
+            } else{
+                console.log(err);
+            }
+        })
+    }          
 })
 
 router.get("/board", function(request, response){
