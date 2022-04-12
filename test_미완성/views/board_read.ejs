@@ -57,7 +57,7 @@
 							<h1>자유게시판</h1>
 							    <form action="http://127.0.0.1:3000/delete" method="post">
 									<div align="right">
-										<a href="http://127.0.0.1:3000/board">목록</a>
+										<a href="http://127.0.0.1:3000/board"><input type="submit" value="목록"></a>
 										<%if (user.nick==rows[0].text_user) {%>
 											<input type="hidden" name="text_title"  value="<%=rows[0].text_title%>">
 											<input type="submit" value="삭제">
@@ -99,10 +99,10 @@
 					<footer id="footer">
 						<div class="inner">
 							<section>
-								<h2>Follow</h2>
+								<h2>Share</h2>
 								<ul class="icons">
-									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="javascript:shareTwitter();" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="javascript:shareFacebook();" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
 									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
