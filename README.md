@@ -21,3 +21,7 @@ Challenge Point : 실시간데이터크롤링
 
 ## 서비스 URL
 없음
+
+## 개발 기간
+![image](https://user-images.githubusercontent.com/101998380/164144972-12f39efa-28bd-4f7c-a4d7-461360058a57.png)
+
