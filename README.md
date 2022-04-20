@@ -17,6 +17,7 @@ Challenge Point : 실시간데이터크롤링
 - 데이터베이스 : Mysql
 
 ## 대표 이미지
-![image01](이미지링크)
+![그림1](https://user-images.githubusercontent.com/101968438/164144717-b2b148c0-92d5-43b5-9cd2-eef32445a024.png)
+
 ## 서비스 URL
 없음
