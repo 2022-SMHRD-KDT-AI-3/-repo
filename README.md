@@ -42,7 +42,7 @@ https://user-images.githubusercontent.com/101998380/164145888-ea5f7471-2a7c-4952
 |------|---|---|
 |김*현|총괄|팀원관리 / PPT / 발표 |
 |김*상|백엔드|DB구축 / 크롤링 |
-|양*선|프론트|HTML CSS JavaScript를 이용하여 웹디자인 구현 / 메인페이지 / 게시판 |
+|양*선|프론트엔드|HTML CSS JavaScript를 이용하여 웹디자인 구현 / 메인페이지 / 게시판 |
 |안*선|백엔드|DB설계 / 기능연결 |
 |여*지|프론트|HTML CSS JavaScript를 이용하여 웹디자인 구현 / 메인페이지 / 오늘의뉴스 |
 
