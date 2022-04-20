@@ -19,5 +19,4 @@ Challenge Point : 실시간데이터크롤링
 ## 대표 이미지
 ![image01](이미지링크)
 ## 서비스 URL
-www.naver.com
-![image](https://user-images.githubusercontent.com/101968438/164143867-f4571f1c-49ff-4153-aa4f-bd40ff22a37b.png)
+없음
