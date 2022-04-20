@@ -20,6 +20,7 @@ Challenge Point : 실시간데이터크롤링
 ## 서비스 흐름도
 - 회원
 ![image](https://user-images.githubusercontent.com/101998380/164145157-29dd0607-2949-4409-acc8-711a0e2c0770.png)
+
 - 비회원
 ![image](https://user-images.githubusercontent.com/101998380/164145193-12b5045c-75e0-4a8f-b40e-7883cc3dcff9.png)
 
